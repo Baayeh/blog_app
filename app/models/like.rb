@@ -9,5 +9,4 @@ class Like < ApplicationRecord
   end
 
   private :increment_like_counter
-
 end
