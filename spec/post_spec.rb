@@ -2,10 +2,9 @@ require 'rails_helper'
 require 'securerandom'
 
 describe Post, type: :model do
-  user = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.')
-  subject {
-    Post.new(author: user, title: 'Hello', text: 'This is my first post')
-  }
+  @user = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.')
+
+  subject { Post.new(author: @user, title: 'Hello', text: 'This is my first post') }
 
   before { subject.save }
 
@@ -45,20 +44,15 @@ describe Post, type: :model do
     end
   end
 
-  # describe '#postscounter to be >= 0' do
-  #   it 'should be greater than 0' do
-  #     subject.postscounter = -1
-  #     expect(subject).to_not be_valid
-  #   end
+  describe '#most_recent_comments' do
+    before do
+      7.times do |i|
+        Comment.create(author: @user, text: "#{i} Comment", post: subject)
+      end
+    end
 
-  #   it 'should be equal to 0' do
-  #     subject.postscounter = 0
-  #     expect(subject).to be_valid
-  #   end
-
-  #   it 'should be greater than 0' do
-  #     subject.postscounter = 3
-  #     expect(subject).to be_valid
-  #   end
-  # end
+    it 'should return the 3 most recent comments' do
+      expect(subject.most_recent_comments).to eq subject.comments.order(created_at: :desc).limit(5)
+    end
+  end
 end
