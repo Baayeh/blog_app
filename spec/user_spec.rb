@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 describe User, type: :model do
-  subject {
+  subject do
     User.new(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.')
-  }
+  end
 
   before { subject.save }
 
@@ -28,6 +28,18 @@ describe User, type: :model do
     it 'should be greater than 0' do
       subject.postscounter = 3
       expect(subject).to be_valid
+    end
+  end
+
+  describe '#most_recent_posts' do
+    before do
+      5.times do |i|
+        Post.create(author: subject, title: "#{i} Post")
+      end
+    end
+
+    it 'should return the 3 most recent posts' do
+      expect(subject.most_recent_posts).to eq subject.posts.order(created_at: :desc).limit(3)
     end
   end
 end
