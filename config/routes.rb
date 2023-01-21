@@ -9,4 +9,6 @@ Rails.application.routes.draw do
       resources :posts, only: [:index]
     end
   end
+
+  get '/users/:id/posts/:id', to: 'posts#show'
 end
