@@ -5,6 +5,10 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-user = User.create(name: 'Lily', photo: 'Some Lily photo', bio: 'Some Lily bio')
+# user = User.create(name: 'Kwasi Baayeh', photo: 'My profile pic', bio: 'I am the coolest')
 
-post = Post.create(author: user, title: 'Hello', text: 'This is my first post')
+# post = Post.create(author: user, title: 'Hello man!!', text: 'This is my original post')
+
+# comment = Comment.create(author: user, post: post, text: 'Hi Kwasi!' )
+
+# like = Like.create(post: post, author: user)
