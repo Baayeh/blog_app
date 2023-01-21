@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   shallow do
-    resources :users, only: [:index, :show]
+    resources :users, only: [:index, :show] do
+      resources :posts, only: [:index]
+    end
   end
 end
