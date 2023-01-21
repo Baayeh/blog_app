@@ -10,7 +10,7 @@ class Post < ApplicationRecord
   end
 
   def increment_post_counter
-    user.increment!(:postscounter)
+    author.increment!(:postscounter)
   end
 
   private :increment_post_counter
