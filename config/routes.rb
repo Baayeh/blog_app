@@ -10,5 +10,5 @@ Rails.application.routes.draw do
     end
   end
 
-  get '/users/:id/posts/:id', to: 'posts#show'
+  get '/users/:id/posts/:id', to: 'posts#show', as: "user_post" 
 end
