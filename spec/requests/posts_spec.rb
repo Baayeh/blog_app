@@ -28,4 +28,8 @@ RSpec.describe 'Posts', type: :request do
       expect(response).to render_template(:show)
     end
 
+    it "displays the correct HTML" do
+      expect(response.body).to include("Details for post 1")
+    end
+  end
 end
