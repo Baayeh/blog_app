@@ -16,4 +16,12 @@ RSpec.describe 'Posts', type: :request do
       expect(response.body).to include("Lists of Posts for a user")
     end
   end
+
+  describe 'GET /show' do
+    before(:example) { get user_post_path(1) }
+
+    it "is a success" do
+      expect(response).to have_http_status(:ok)
+    end
+
 end
