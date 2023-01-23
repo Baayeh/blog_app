@@ -46,6 +46,8 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 
 gem 'securerandom', '~> 0.1.0'
 
+gem 'rails-controller-testing'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
