@@ -1,1 +1,10 @@
-<h3>Lists of Posts for a user</h3>
+<section class="users_container">
+  <h1 class="user_header_title"><%= @user.name %>'s Posts</h1>
+  <%= create_single_user(@user, "shared/header") %>
+  <ul class="users-list">
+    <%= create_single_post(@user_posts, 'shared/post_list') %>
+    <% if @user_posts.empty? %>
+      <p>No posts available for <%= @user.name %></p>
+    <% end %>
+  </ul>
+</section>

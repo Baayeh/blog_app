@@ -2,19 +2,24 @@ section.posts_container {
   margin-top: 2rem;
 }
 
-li.post_item {
-  padding: 1rem;
-  border: 2px solid black;
+li.post_item_container {
   margin-bottom: 1rem;
 }
 
-li.post_item p {
+div.post_item {
+  padding: 1rem;
+  border: 2px solid black;
+}
+
+li.post_item_container p {
   margin: 1rem 0;
   font-size: 1.2rem;
 }
 
-li.post_item div {
-  text-align: end;
+div.comment_likes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 a.see_all_posts_btn {
@@ -24,7 +29,23 @@ a.see_all_posts_btn {
   padding: 0.5rem;
 }
 
-ul.posts_list > div {
+ul.posts_list > div.see_posts_btn {
   text-align: center;
   margin-top: 2rem;
+}
+
+div.comments_on_posts,
+section.post_details_container {
+  border: 2px solid black;
+  padding: 0.5rem;
+}
+
+section.post_details_container {
+  font-size: 1.2rem;
+}
+
+div.post_details_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
