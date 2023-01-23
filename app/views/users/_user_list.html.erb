@@ -1,0 +1,11 @@
+<% obj.each do |user| %>
+  <li class="user_item">
+    <div class="user_photo">
+      <img src="<%= user.photo %>" alt="<%= user.name %>">
+    </div>
+    <div class="user_info">
+      <%= link_to user.name, user_path(user.id) %>
+      <p>Number of posts: <%= user.postscounter %></p>
+    </div>
+  </li>
+<% end %>

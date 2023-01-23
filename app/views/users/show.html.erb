@@ -1,13 +1,5 @@
 <h1 class="user_header_title">Details of <%= @user.name %></h1>
-<div class="user_details">
-  <div class="photo">
-    <img src="<%= @user.photo %>" alt="<%= @user.name %>">
-  </div>
-  <div class="user_info">
-    <h4><%= @user.name %></h4>
-    <p>Number of posts: <%= @user.postscounter %></p>
-  </div>
-</div>
+<%= create_single_user(@user, "shared/header") %>
 <section class="bio">
   <h4>Bio</h4>
   <p class="bio_info">
@@ -17,21 +9,11 @@
 <section class="posts_container">
   <h3>My Posts</h3>
   <ul class="posts_list">
-    <% if !@posts.empty? %>
-      <% @posts.each do |post| %>
-        <li class="post_item">
-          <h4><%= post.title %></h4>
-          <p><%= post.text %></p>
-          <div>
-            <span>Comments: <%= post.commentscounter %></span>, 
-            <span>Likes: <%= post.likescounter %></span>
-          </div>
-        </li>
-      <% end %>
-      <div>
+    <%= create_single_post(@posts, "shared/post_list") %>
+    <div>
       <%= link_to "See all posts", user_posts_path(@user.id), class: "see_all_posts_btn" %>
-      </div>
-    <% else %>
+    </div>
+    <% if @posts.empty? %>
       <p>No posts made by <%= @user.name %></p>
     <% end %>
   </ul>
