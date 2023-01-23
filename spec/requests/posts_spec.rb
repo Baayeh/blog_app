@@ -12,5 +12,8 @@ RSpec.describe 'Posts', type: :request do
       expect(response).to render_template(:index)
     end
 
+    it "displays the correct HTML" do
+      expect(response.body).to include("Lists of Posts for a user")
+    end
   end
 end
