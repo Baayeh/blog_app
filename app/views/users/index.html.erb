@@ -1,1 +1,20 @@
-<h3>List of all users</h3>
+<section class="users_container">
+  <h1 class="user_header_title">List of Users</h1>
+  <ul class="users-list">
+    <% if !@users.empty? %>
+      <% @users.each do |user| %>
+        <li class="user_item">
+          <div class="user_photo">
+            <img src="<%= user.photo %>" alt="<%= user.name %>">
+          </div>
+          <div class="user_info">
+            <%= link_to user.name, user_path(user.id) %>
+            <p>Number of posts: <%= user.postscounter %></p>
+          </div>
+        </li>
+      <% end %>
+    <% else %>
+      <p>No users available</p>
+    <% end %>
+  </ul>
+</section>
