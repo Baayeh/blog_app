@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+ }
+
+ ul {
+  list-style: none;
+ }
+ 
+ div.main_container {
+  max-width: 40%;
+  margin: 0 auto;
+}
+
+*= require users
+*= require posts

@@ -1,0 +1,30 @@
+section.posts_container {
+  margin-top: 2rem;
+}
+
+li.post_item {
+  padding: 1rem;
+  border: 2px solid black;
+  margin-bottom: 1rem;
+}
+
+li.post_item p {
+  margin: 1rem 0;
+  font-size: 1.2rem;
+}
+
+li.post_item div {
+  text-align: end;
+}
+
+a.see_all_posts_btn {
+  text-decoration: none;
+  color: #000;
+  border: 2px solid #000;
+  padding: 0.5rem;
+}
+
+ul.posts_list > div {
+  text-align: center;
+  margin-top: 2rem;
+}
