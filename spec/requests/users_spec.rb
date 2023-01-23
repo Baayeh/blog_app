@@ -27,5 +27,9 @@ RSpec.describe 'Users', type: :request do
     it "renders the show template" do
       expect(response).to render_template(:show)
     end
+
+    it "displays the correct HTML" do
+      expect(response.body).to include("Details for user 1")
+    end
   end
 end
