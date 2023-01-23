@@ -1,0 +1,10 @@
+<% obj.each do |post| %>
+  <li class="post_item">
+    <h4><%= post.title %></h4>
+    <p><%= post.text %></p>
+    <div>
+      <span>Comments: <%= post.commentscounter %></span>, 
+      <span>Likes: <%= post.likescounter %></span>
+    </div>
+  </li>
+<% end %>
