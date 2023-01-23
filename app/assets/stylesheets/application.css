@@ -14,20 +14,17 @@
  *= require_self
  */
 
- * {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
- }
+}
 
- ul {
+ul {
   list-style: none;
- }
- 
- div.main_container {
+}
+
+div.main_container {
   max-width: 55%;
   margin: 0 auto;
 }
-
-*= require users
-*= require posts
