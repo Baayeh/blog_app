@@ -9,11 +9,12 @@
 <section class="posts_container">
   <h3>My Posts</h3>
   <ul class="posts_list">
-    <%= create_single_post(@posts, "shared/post_list") %>
-    <div>
-      <%= link_to "See all posts", user_posts_path(@user.id), class: "see_all_posts_btn" %>
-    </div>
-    <% if @posts.empty? %>
+    <%= create_single_post(@posts, "posts/single_post") %>
+    <% if !@posts.empty? %>
+      <div class="see_posts_btn">
+        <%= link_to "See all posts", user_posts_path(@user.id), class: "see_all_posts_btn" %>
+      </div>
+    <% else %>
       <p>No posts made by <%= @user.name %></p>
     <% end %>
   </ul>
