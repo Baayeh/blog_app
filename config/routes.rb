@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   shallow do
     resources :users, only: [:index, :show] do
-      resources :posts, only: [:index, :new, :show]
+      resources :posts, only: [:index, :new, :create, :show]
     end
   end
 
