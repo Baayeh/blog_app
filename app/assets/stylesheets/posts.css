@@ -1,0 +1,51 @@
+section.posts_container {
+  margin-top: 2rem;
+}
+
+li.post_item_container {
+  margin-bottom: 1rem;
+}
+
+div.post_item {
+  padding: 1rem;
+  border: 2px solid black;
+}
+
+li.post_item_container p {
+  margin: 1rem 0;
+  font-size: 1.2rem;
+}
+
+div.comment_likes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+a.see_all_posts_btn {
+  text-decoration: none;
+  color: #000;
+  border: 2px solid #000;
+  padding: 0.5rem;
+}
+
+ul.posts_list > div.see_posts_btn {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+div.comments_on_posts,
+section.post_details_container {
+  border: 2px solid black;
+  padding: 0.5rem;
+}
+
+section.post_details_container {
+  font-size: 1.2rem;
+}
+
+div.post_details_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

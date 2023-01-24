@@ -1,1 +1,21 @@
-<h3>Details for user <%= @id %></h3>
+<h1 class="user_header_title">Details of <%= @user.name %></h1>
+<%= create_single_user(@user, "shared/header") %>
+<section class="bio">
+  <h4>Bio</h4>
+  <p class="bio_info">
+    <%= @user.bio %>
+  </p>
+</section>
+<section class="posts_container">
+  <h3>My Posts</h3>
+  <ul class="posts_list">
+    <%= create_single_post(@posts, "posts/single_post") %>
+    <% if !@posts.empty? %>
+      <div class="see_posts_btn">
+        <%= link_to "See all posts", user_posts_path(@user.id), class: "see_all_posts_btn" %>
+      </div>
+    <% else %>
+      <p>No posts made by <%= @user.name %></p>
+    <% end %>
+  </ul>
+</section>

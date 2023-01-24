@@ -1,0 +1,17 @@
+<% obj.each do |post| %>
+  <li class="post_item_container">
+    <div class="post_item">
+      <h4><%= post.title %></h4>
+      <p><%= post.text.slice(0, 130) + "..." %></p>
+      <div class="comment_likes">
+        <div>
+          <%= link_to "View More", user_post_path(post.id), class: "see_all_posts_btn" %>
+        </div>
+        <div>
+          <span>Comments: <%= post.commentscounter %></span>, 
+          <span>Likes: <%= post.likescounter %></span>
+        </div>
+      </div>
+    </div>
+  </li>
+<% end %>

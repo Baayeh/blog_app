@@ -1,0 +1,53 @@
+section.users_container {
+  padding: 2rem;
+}
+
+h1.user_header_title {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+div.user_photo img,
+div.photo img {
+  width: 10rem;
+  height: 13rem;
+}
+
+li.user_item,
+div.user_details {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+div.user_info {
+  border: 2px solid black;
+  width: 100%;
+  min-height: 13rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  font-size: 1.6rem;
+}
+
+div.user_info a {
+  text-decoration: none;
+  font-size: 2rem;
+}
+
+div.user_info p {
+  align-self: flex-end;
+}
+
+section.bio {
+  padding: 1rem;
+  border: 2px solid black;
+}
+
+section.bio p {
+  margin: 1rem 0;
+  font-size: 1.2rem;
+}

@@ -1,1 +1,21 @@
-<h3>Details for post <%= @id %></h3>
+<h1 class="user_header_title">Post Details</h1>
+<section class="post_details_container">
+  <div class="post_details_header">
+    <h4 style="margin-bottom: 1rem"><%= @post.title %> by <%= @post.author.name %></h4>
+    <div>
+      <span>Comments: <%= @post.commentscounter %></span>, 
+      <span>Likes: <%= @post.likescounter %></span>
+    </div>
+  </div>
+  <div class="post_details_body">
+    <p><%= @post.text %></p>
+  </div>
+</section>
+<% if !@post.comments.empty? %>
+  <div class="comments_on_posts">
+    <h4>Comments</h4>
+    <% @post.comments.each do |comment| %>
+      <p><span style="font-weight: 700"><%= comment.author.name %>:</span> <%= comment.text %></p>
+    <% end %>
+  </div>
+<% end %>

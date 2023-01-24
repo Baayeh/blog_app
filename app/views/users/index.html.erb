@@ -1,1 +1,9 @@
-<h3>List of all users</h3>
+<section class="users_container">
+  <h1 class="user_header_title">List of Users</h1>
+  <ul class="users-list">
+    <%= create_single_user(@users, 'users/user_list') %>
+    <% if @users.empty? %>
+      <p>No users available</p>
+    <% end %>
+  </ul>
+</section>
