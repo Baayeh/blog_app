@@ -9,20 +9,26 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = current_user.posts.new(post_params)
+    @post = Post.new(post_params)
+    @post.author = current_user
     if @post.save
-      redirect_to user_posts_path(current_user), notice: "Successfully created a post"
+      redirect_to user_posts_path(current_user.id), notice: "Successfully created a post"
     else
-      flash.now[:error] = @post.errors.full_messages
-      redirect_to new_user_post_path(current_user)
+      flash[:error] = @post.errors.full_messages
+      redirect_to new_user_post_path(current_user.id)
     end
   end
 
+  def show
+    @user = User.find(params[:user_id])
+    @post = Post.find(params[:id])
+    @post.comments.includes(:user)
+  end
+
+  private
+  
   def post_params
     params.require(:post).permit(:title, :text)
   end
 
-  def show
-    @post = Post.find(params[:id])
-  end
 end

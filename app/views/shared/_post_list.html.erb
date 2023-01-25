@@ -5,7 +5,7 @@
       <p><%= post.text.slice(0, 130) + "..." %></p>
       <div class="comment_likes">
         <div>
-          <%= link_to "View More", user_post_path(post.id), class: "see_all_posts_btn" %>
+          <%= link_to "View More", user_post_path(@user.id, post.id), class: "see_all_posts_btn" %>
         </div>
         <div>
           <span>Comments: <%= post.commentscounter %></span>, 
