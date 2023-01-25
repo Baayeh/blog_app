@@ -4,13 +4,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "users#index"
 
-  shallow do
-    resources :users, only: [:index, :show] do
-      resources :posts, only: [:index, :new, :create, :show] do
-        resources :comments, only: [:index, :create]
-      end
+  resources :users, only: [:index, :show] do
+    resources :posts, only: [:index, :new, :create, :show] do
+      resources :comments, only: [:create]
     end
   end
-
-  get '/users/:id/posts/:id', to: 'posts#show', as: "user_post" 
 end
