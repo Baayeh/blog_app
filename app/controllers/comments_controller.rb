@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to user_post_path(@user, @post), notice: "Successfully added a comment"
     else
-      flash.now[:error] = @comment.errors.full_messages
+      flash[:error] = @comment.errors.full_messages
       redirect_to user_post_path(@user, @post)
     end
   end
