@@ -11,11 +11,13 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.author = current_user
-    if @post.save
-      redirect_to user_posts_path(current_user.id), notice: 'Successfully created a post'
-    else
-      flash[:error] = @post.errors.full_messages
-      redirect_to new_user_post_path(current_user.id)
+    respond_to do |format|
+      if @post.save
+        format.html { redirect_to user_posts_path(current_user.id), notice: 'Successfully created a post' }
+      else
+        flash[:error] = @post.errors.full_messages
+        format.html { redirect_to new_user_post_path(current_user.id) }
+      end
     end
   end
 
