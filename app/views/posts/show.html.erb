@@ -12,7 +12,7 @@
     <p><%= @post.text %></p>
   </div>
 </section>
-<% if !@post.comments.empty? %>
+<% unless @post.comments.empty? %>
   <div class="comments_on_posts">
     <h4>Comments</h4>
     <% @post.comments.each do |comment| %>

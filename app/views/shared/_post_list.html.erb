@@ -13,7 +13,7 @@
         </div>
       </div>
     </div>
-    <% if !post.comments.empty? %>
+    <% unless post.comments.empty? %>
       <div class="comments_on_posts">
         <h4>Comments</h4>
         <% post.most_recent_comments.each do |comment| %>
