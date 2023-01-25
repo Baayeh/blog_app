@@ -48,6 +48,8 @@ gem 'securerandom', '~> 0.1.0'
 
 gem 'rails-controller-testing'
 
+gem 'faker'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
