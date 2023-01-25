@@ -1,18 +1,22 @@
 class CommentsController < ApplicationController
   def create
-    @user = Post.find(params[:user_id])
-    @post = Post.find(params[:post_id])
-    @comment = Comment.new(comment_params)
-    @comment.author = current_user
-    @comment.post = @post
+    @comment = current_user.comments.new(comment_params)
+    @comment.post_id = params[:post_id]
 
-    if @comment.save
-      redirect_to user_post_path(@user, @post), notice: 'Successfully added a comment'
-    else
-      flash[:error] = @comment.errors.full_messages
-      redirect_to user_post_path(@user, @post)
+    respond_to do |format|
+      if @comment.save
+        format.html { redirect_to user_post_path(@comment.author, @comment.post), notice: 'Successfully added a comment' }
+      else
+        @user = Post.find(params[:user_id])
+        @post = Post.find(params[:post_id])
+        flash[:error] = @comment.errors.full_messages
+        format.html { redirect_to user_post_path(@user, @post) }
+      end
     end
+
   end
+
+  private
 
   def comment_params
     params.require(:comment).permit(:text)
