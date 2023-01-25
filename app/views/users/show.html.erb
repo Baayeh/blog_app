@@ -9,7 +9,7 @@
 <section class="posts_container">
   <div class="create_post">
     <h3>My Posts</h3>
-    <%= link_to "Create a Post", new_user_post_path(current_user) %>
+    <%= link_to "Create a Post", new_user_post_path(@user) %>
   </div>
   <ul class="posts_list">
     <%= create_single_post(@posts, "posts/single_post") %>
