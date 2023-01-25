@@ -5,7 +5,9 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to user_post_path(@comment.author, @comment.post), notice: 'Successfully added a comment' }
+        format.html do
+          redirect_to user_post_path(@comment.author, @comment.post), notice: 'Successfully added a comment'
+        end
       else
         @user = Post.find(params[:user_id])
         @post = Post.find(params[:post_id])
@@ -13,7 +15,6 @@ class CommentsController < ApplicationController
         format.html { redirect_to user_post_path(@user, @post) }
       end
     end
-
   end
 
   private
