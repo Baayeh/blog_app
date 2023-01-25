@@ -1,5 +1,5 @@
 <h1 class="user_header_title">Post Details</h1>
-<%= button_to "Like Post", user_post_likes_path(@user, @post), method: :post %>
+<%= button_to "Like Post", user_post_likes_path(@user, @post), method: :post, class: "like_post_btn" %>
 <section class="post_details_container">
   <div class="post_details_header">
     <h4 style="margin-bottom: 1rem"><%= @post.title %> by <%= @post.author.name %></h4>

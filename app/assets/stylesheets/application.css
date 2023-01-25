@@ -28,3 +28,24 @@ div.main_container {
   max-width: 55%;
   margin: 0 auto;
 }
+
+div.alert {
+  text-align: center;
+  font-size: 1.3rem;
+  width: 25rem;
+  color: #01422c;
+  padding: 1rem;
+  border-radius: 2rem;
+  margin-top: 1rem;
+  position: absolute;
+  right: 70px;
+}
+
+div.alert-info {
+  background-color: aquamarine;
+}
+
+div.alert-danger {
+  color: #3a010b;
+  background: #ed0d0d;
+}

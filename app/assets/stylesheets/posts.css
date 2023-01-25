@@ -103,3 +103,10 @@ a.add_comment_btn {
   padding: 0.3rem;
   margin-top: 1rem;
 }
+
+button.like_post_btn {
+  padding: 0.3rem;
+  background: antiquewhite;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
