@@ -6,12 +6,14 @@ describe "GET user#index", type: :feature do
       User.create(
         name: 'Tom',
         photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
-        bio: 'Teacher from Mexico.'
+        bio: 'Teacher from Mexico.',
+        postscounter: 2
       ),
       User.create(
         name: 'Lilly',
         photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
-        bio: 'Teacher from Poland.'
+        bio: 'Teacher from Poland.',
+        postscounter: 5
       )
     ]
 
@@ -19,7 +21,7 @@ describe "GET user#index", type: :feature do
   end
 
   describe "View User names" do
-    it "display names of all users" do
+    it "displays names of all users" do
       @users.each do |user|
         expect(page).to have_content(user.name)
       end
@@ -27,9 +29,17 @@ describe "GET user#index", type: :feature do
   end
 
   describe "View Profile Photos" do
-    it "display photos of all users" do
+    it "displays photos of all users" do
       @users.each do |user|
         expect(page).to have_css("img[src*='#{user.photo}']")
+      end
+    end
+  end
+
+  describe "View User Posts Count" do
+    it "displays the number of posts for each user" do
+      @users.each do |user|
+        expect(page).to have_content("Number of posts: #{user.postscounter}")
       end
     end
   end
