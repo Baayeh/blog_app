@@ -13,12 +13,12 @@ RSpec.describe 'Posts', type: :request do
     end
 
     it 'displays the correct HTML' do
-      expect(response.body).to include('Lists of Posts for a user')
+      expect(response.body).to include("Tom's Posts")
     end
   end
 
   describe 'GET /show' do
-    before(:example) { get user_post_path(1) }
+    before(:example) { get user_post_path(1, 1) }
 
     it 'is a success' do
       expect(response).to have_http_status(:ok)
@@ -29,7 +29,7 @@ RSpec.describe 'Posts', type: :request do
     end
 
     it 'displays the correct HTML' do
-      expect(response.body).to include('Details for post 1')
+      expect(response.body).to include('Post Details')
     end
   end
 end

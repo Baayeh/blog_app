@@ -13,7 +13,7 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'displays the correct HTML' do
-      expect(response.body).to include('List of all users')
+      expect(response.body).to include('List of Users')
     end
   end
 
@@ -29,7 +29,7 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'displays the correct HTML' do
-      expect(response.body).to include('Details for user 1')
+      expect(response.body).to include('Details of Tom')
     end
   end
 end
