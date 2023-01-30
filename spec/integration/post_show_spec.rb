@@ -69,4 +69,10 @@ describe "GET posts#show", type: :feature do
       expect(page).to have_content "Likes: #{@posts.first.likescounter}"
     end
   end
+
+  describe "Post Body" do
+    it "should display the post content" do
+      expect(page).to have_content @posts.first.text
+    end
+  end
 end
