@@ -1,90 +1,84 @@
 require 'rails_helper'
 
-RSpec.describe 'GET#show', type: :feature do
+RSpec.describe 'GET users#show', type: :feature do
   before(:each) do
     @users = [
       User.create(
         name: 'Tom',
         photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
-        bio: 'Teacher from Mexico.'
+        bio: 'Teacher from Mexico.',
+        postscounter: 2
       ),
       User.create(
         name: 'Lilly',
         photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
-        bio: 'Teacher from Poland.'
+        bio: 'Teacher from Poland.',
+        postscounter: 5
       )
     ]
+
     @posts = [
       Post.create(
-        author: user, 
+        author: @users.first, 
         title: 'Hello', 
         text: 'This is my first post'
       ),
       Post.create(
-        author: user, 
+        author: @users.first, 
         title: 'Hello', 
         text: 'This is my second post'
       ),
       Post.create(
-        author: user, 
+        author: @users.first, 
         title: 'Hello', 
         text: 'This is my third post'
       ),
     ]
+
+    visit user_path(@users.first)
   end
+  
   describe 'User visits show page and sees user info' do
-    visit user_path(user)
 
-    it 'displays user\'s profile picture' do
+    it "displays user\'s profile picture" do
 
-      @users.each do |user|
-        expect(page).to have_css('img[src="#{user.photo}"]')
+      expect(page).to have_css("img[src='#{@users.first.photo}']")
+    end
+
+    it "shows user\'s username" do
+      expect(page).to have_content(@users.first.name)
+    end
+
+    it "renders the number of user\'s posts" do
+      expect(page).to have_content("Number of posts: #{@users.first.postscounter}")
+    end
+
+    it "renders  user\'s bio" do
+      expect(page).to have_content(@users.first.bio)
+    end
+
+    it "renders the number of user\'s posts count" do
+      @users.first.most_recent_posts.each do |post|
+        expect(page).to have_content(post.title)
       end
     end
 
-    it 'shows user\'s username' do
-      @users.each do |user|
-        expect(page).to have_content(user.name)
-      end
-    end
-
-    it 'renders the number of user\'s posts' do
-      @users.each do |user|
-        expect(page).to have_content('Number of posts: #{user.posts.count}')
-      end
-    end
-
-    it 'renders  user\'s bio' do
-      @users.each do |user|
-        expect(page).to have_content(user.bio)
-      end
-    end
-
-    it 'renders the number of user\'s posts count' do
-      @users.each do |user|
-        expect(page).to have_selector('.post', count: 3)
-      end
-    end
-
-    it 'dispays all user\'s posts' do
-      @users.each do |user|
-        expect(page).to have_link('See all posts', href: user_posts_path(user))
-      end
+    it "displays all user\'s posts" do
+      expect(page).to have_link('See all posts', href: user_posts_path(@users.first))
     end
   end
 
-  describe 'See all posts and user\'s post index page' do
-  it 'renders and redirects to show page when user clicks on a post' do
-    visit user_path(user)
+  describe "See all posts and user\'s post index page" do
+    it 'should have the View More Button' do
+      @posts.each do |post|
 
-    @posts.each do |post|
+        expect(page).to have_link('View More', href: user_post_path(@users.first, post))
+      end
+    end
 
-    expect(page).to have_content(post.title)
-
-    expect(page).to have_current_path(post_path(post.first))
-
-    click_link('See all posts')
-    expect(page).to have_current_path(user_posts_path(user))
-  end
+    it "should redirect to the user details page" do
+      click_link('View More', href: user_post_path(@users.first, @posts.first))
+      expect(page).to have_current_path(user_post_path(@users.first, @posts.first))
+    end
   end
 end
