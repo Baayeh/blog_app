@@ -58,4 +58,10 @@ describe "GET posts#show", type: :feature do
     end
   end
 
+  describe "Post Comments" do
+    it "should display the comments counter for post" do
+      expect(page).to have_content "Comments: #{@posts.first.commentscounter}"
+    end
+  end
+
 end
