@@ -52,4 +52,10 @@ describe "GET posts#show", type: :feature do
     end
   end
 
+  describe "Post Author" do
+    it "should display the post author" do
+      expect(page).to have_content @posts.first.author.name
+    end
+  end
+
 end
