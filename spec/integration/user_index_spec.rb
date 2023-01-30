@@ -26,4 +26,12 @@ describe "GET user#index", type: :feature do
     end
   end
 
+  describe "View Profile Photos" do
+    it "display photos of all users" do
+      @users.each do |user|
+        expect(page).to have_css("img[src*='#{user.photo}']")
+      end
+    end
+  end
+
 end
