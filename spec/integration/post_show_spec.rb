@@ -84,4 +84,11 @@ describe "GET posts#show", type: :feature do
     end
   end
 
+  describe "Comment's Body" do
+    it "should display the comment's body" do
+      @posts.first.comments.each do |comment|
+        expect(page).to have_content comment.text
+      end
+    end
+  end
 end
