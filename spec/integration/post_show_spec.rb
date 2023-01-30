@@ -75,4 +75,13 @@ describe "GET posts#show", type: :feature do
       expect(page).to have_content @posts.first.text
     end
   end
+
+  describe "Comment's Author" do
+    it "should display the comment's author" do
+      @posts.first.comments.each do |comment|
+        expect(page).to have_content comment.author.name
+      end
+    end
+  end
+
 end
