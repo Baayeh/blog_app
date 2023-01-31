@@ -2,9 +2,10 @@
   <h1 class="user_header_title"><%= @user.name %>'s Posts</h1>
   <%= create_single_user(@user, "shared/header") %>
   <ul class="users-list">
-    <%= create_single_post(@user_posts, 'shared/post_list') %>
-    <% if @user_posts.empty? %>
+    <%= create_single_post(@user.posts, 'shared/post_list') %>
+    <% if @user.posts.empty? %>
       <p>No posts available for <%= @user.name %></p>
     <% end %>
   </ul>
+  <p>Pagination</p>
 </section>

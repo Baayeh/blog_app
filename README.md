@@ -118,6 +118,10 @@ To run the project, execute the following command:
 - GitHub: [@Baayeh](https://github.com/Baayeh)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/kabaayeh)
 
+👤 **Author2**
+
+- GitHub: [@Okechukwu-muokwugwo](https://github.com/Okechukwu-muokwugwo)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
