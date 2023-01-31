@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "GET posts#show", type: :feature do
+describe 'GET posts#show', type: :feature do
   before(:each) do
     @users = [
       User.create(
@@ -40,38 +40,38 @@ describe "GET posts#show", type: :feature do
         post: @posts.first,
         author: @users.last,
         text: 'Way to go! man'
-      ),
+      )
     ]
 
     visit user_post_path(@users.first, @posts.first)
   end
 
-  describe "Post Title" do
-    it "should display the post title" do
+  describe 'Post Title' do
+    it 'should display the post title' do
       expect(page).to have_content @posts.first.title
     end
   end
 
-  describe "Post Author" do
-    it "should display the post author" do
+  describe 'Post Author' do
+    it 'should display the post author' do
       expect(page).to have_content @posts.first.author.name
     end
   end
 
-  describe "Post Comments" do
-    it "should display the comments counter for post" do
+  describe 'Post Comments' do
+    it 'should display the comments counter for post' do
       expect(page).to have_content "Comments: #{@posts.first.commentscounter}"
     end
   end
 
-  describe "Post Likes" do
-    it "should display the likes counter for post" do
+  describe 'Post Likes' do
+    it 'should display the likes counter for post' do
       expect(page).to have_content "Likes: #{@posts.first.likescounter}"
     end
   end
 
-  describe "Post Body" do
-    it "should display the post content" do
+  describe 'Post Body' do
+    it 'should display the post content' do
       expect(page).to have_content @posts.first.text
     end
   end
