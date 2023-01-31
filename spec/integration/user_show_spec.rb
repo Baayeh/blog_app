@@ -19,64 +19,61 @@ RSpec.describe 'GET users#show', type: :feature do
 
     @posts = [
       Post.create(
-        author: @users.first, 
-        title: 'Hello', 
+        author: @users.first,
+        title: 'Hello',
         text: 'This is my first post'
       ),
       Post.create(
-        author: @users.first, 
-        title: 'Hello', 
+        author: @users.first,
+        title: 'Hello',
         text: 'This is my second post'
       ),
       Post.create(
-        author: @users.first, 
-        title: 'Hello', 
+        author: @users.first,
+        title: 'Hello',
         text: 'This is my third post'
-      ),
+      )
     ]
 
     visit user_path(@users.first)
   end
-  
+
   describe 'User visits show page and sees user info' do
-
-    it "displays user\'s profile picture" do
-
+    it "displays user's profile picture" do
       expect(page).to have_css("img[src='#{@users.first.photo}']")
     end
 
-    it "shows user\'s username" do
+    it "shows user's username" do
       expect(page).to have_content(@users.first.name)
     end
 
-    it "renders the number of user\'s posts" do
+    it "renders the number of user's posts" do
       expect(page).to have_content("Number of posts: #{@users.first.postscounter}")
     end
 
-    it "renders  user\'s bio" do
+    it "renders  user's bio" do
       expect(page).to have_content(@users.first.bio)
     end
 
-    it "renders the number of user\'s posts count" do
+    it "renders the number of user's posts count" do
       @users.first.most_recent_posts.each do |post|
         expect(page).to have_content(post.title)
       end
     end
 
-    it "displays all user\'s posts" do
+    it "displays all user's posts" do
       expect(page).to have_link('See all posts', href: user_posts_path(@users.first))
     end
   end
 
-  describe "See all posts and user\'s post index page" do
+  describe "See all posts and user's post index page" do
     it 'should have the View More Button' do
       @posts.each do |post|
-
         expect(page).to have_link('View More', href: user_post_path(@users.first, post))
       end
     end
 
-    it "should redirect to the user details page" do
+    it 'should redirect to the user details page' do
       click_link('View More', href: user_post_path(@users.first, @posts.first))
       expect(page).to have_current_path(user_post_path(@users.first, @posts.first))
     end

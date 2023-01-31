@@ -37,9 +37,10 @@ RSpec.describe 'post#index', type: :feature do
 
     @comments = [
       Comment.create(
-        post: @posts.first, 
-        author: @users.last, 
-        text: 'Hi Tom!' ),
+        post: @posts.first,
+        author: @users.last,
+        text: 'Hi Tom!'
+      ),
       Comment.create(
         post: @posts.first,
         author: @users.last,
@@ -51,13 +52,13 @@ RSpec.describe 'post#index', type: :feature do
   end
 
   describe 'User post index page' do
-    it "displays user\'s profile picture" do
+    it "displays user's profile picture" do
       @users.each do |user|
         expect(page).to have_css("img[src='#{user.photo}']")
       end
     end
 
-    it "has user\'s username" do
+    it "has user's username" do
       @users.each do |user|
         expect(page).to have_content(user.name)
       end
@@ -69,18 +70,17 @@ RSpec.describe 'post#index', type: :feature do
       end
     end
 
-    it "has post\'s title" do
+    it "has post's title" do
       @posts.each do |post|
         expect(page).to have_content(post.title)
       end
     end
 
-    it "displays post\'s body" do
+    it "displays post's body" do
       @posts.each do |post|
         expect(page).to have_content(post.text)
       end
     end
-    
 
     it 'has first comments on a post' do
       @posts.first.most_recent_comments.each do |comment|
@@ -88,19 +88,19 @@ RSpec.describe 'post#index', type: :feature do
       end
     end
 
-    it "displays number of comments a post has" do
+    it 'displays number of comments a post has' do
       @posts.each do |post|
         expect(page).to have_content("Comments: #{post.commentscounter}")
       end
     end
 
-    it "has a section pagination if there are more posts" do
+    it 'has a section pagination if there are more posts' do
       expect(page).to have_content('Pagination')
     end
   end
 
   it 'should redirect to the post details page' do
     click_link('View More', href: user_post_path(@users.first, @posts.first))
-      expect(page).to have_current_path(user_post_path(@users.first, @posts.first))
+    expect(page).to have_current_path(user_post_path(@users.first, @posts.first))
   end
 end
