@@ -1,0 +1,32 @@
+h2.sign-in-header {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+div.sign-in-field {
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+div.sign-in-field input {
+  padding: 0.6rem;
+  width: 30.3rem;
+  font-size: 1.3rem;
+}
+
+div.check-field {
+  font-size: 1.3rem;
+  align-self: flex-start;
+  width: 30.3rem;
+  margin: 0 auto 1rem;
+}
+
+div.actions .sign-in-btn {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  font-size: 1.3rem;
+  width: 30.3rem;
+  cursor: pointer;
+}
