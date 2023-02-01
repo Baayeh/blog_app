@@ -1,0 +1,8 @@
+<div class="sign-in">
+<% if user_signed_in? %>
+  <%= button_to "Log out", destory_user_session, method: :delete %>
+  <% else%>
+  <%= link_to "Log in", new_user_session_path %>
+  <%= link_to "Sign up", new_user_registration_path%>
+<% end %>
+</div>
