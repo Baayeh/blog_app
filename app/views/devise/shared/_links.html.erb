@@ -4,13 +4,17 @@
   <% end %>
 </div>
 
-<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "Sign up", new_registration_path(resource_name) %><br />
-<% end %>
+<div class="login_path">
+  <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+    <%= link_to "Sign up", new_registration_path(resource_name) %><br />
+  <% end %>
+</div>
 
-<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
-<% end %>
+<div class="login_path">
+  <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+    <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+  <% end %>
+</div>
 
 <div class="confirmable_path">
   <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
