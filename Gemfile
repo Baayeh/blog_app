@@ -50,7 +50,9 @@ gem 'rails-controller-testing'
 
 gem 'faker'
 
-gem 'devise'
+gem "devise", github: "heartcombo/devise", branch: "ca-turbo"
+
+gem "responders", github: "heartcombo/responders", branch: "main"
 
 # Use Sass to process CSS
 # gem "sassc-rails"
