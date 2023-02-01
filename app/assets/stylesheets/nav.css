@@ -1,0 +1,37 @@
+div.sign-in {
+  padding: 1rem;
+  background-color: azure;
+  border-bottom: 1px solid #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+div.session_manager a,
+a.nav-brand {
+  text-decoration: none;
+  color: #000;
+}
+
+div.session_manager a,
+.logout-btn {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid burlywood;
+}
+
+.logout-btn {
+  cursor: pointer;
+}
+
+div.session_manager a:hover,
+.logout-btn:hover {
+  background-color: burlywood;
+}
+
+a.nav-brand span {
+  color: crimson;
+}
