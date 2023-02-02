@@ -14,7 +14,7 @@ class User < ApplicationRecord
     posts.first(3)
   end
 
-  ROLES = [:admin, :user]
+  ROLES = %i[admin user].freeze
 
   def admin?
     role == :admin
