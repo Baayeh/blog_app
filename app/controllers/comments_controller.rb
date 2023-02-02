@@ -1,4 +1,7 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!, only: %i[create destroy]
+  load_and_authorize_resource
+
   def create
     @comment = current_user.comments.new(comment_params)
     @comment.post_id = params[:post_id]
@@ -14,6 +17,17 @@ class CommentsController < ApplicationController
         flash[:error] = @comment.errors.full_messages
         format.html { redirect_to user_post_path(@user, @post) }
       end
+    end
+  end
+
+  def destroy
+    @post = Post.find(params[:post_id])
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    @post.decrement!(:commentscounter)
+
+    respond_to do |format|
+      format.html { redirect_to user_post_path(@post.author, @post), notice: 'Comment successfully deleted' }
     end
   end
 

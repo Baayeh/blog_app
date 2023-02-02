@@ -110,3 +110,8 @@ button.like_post_btn {
   display: inline-block;
   margin-bottom: 1rem;
 }
+
+div.post-detail-actions {
+  display: flex;
+  justify-content: space-between;
+}

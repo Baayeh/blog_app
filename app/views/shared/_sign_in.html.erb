@@ -4,7 +4,10 @@
   <% end %>
   <div class="session_manager">
     <% if user_signed_in? %>
-      <%= button_to "Log Out", destroy_user_session_path, method: :delete, class: "logout-btn" %>
+      <div class="user_signed_in">
+        <span><%= current_user.name %></span>
+        <%= button_to "Log Out", destroy_user_session_path, method: :delete, class: "logout-btn" %>
+      </div>
       <% else%>
       <%= link_to "Log In", new_user_session_path %>
       <%= link_to "Sign Up", new_user_registration_path%>

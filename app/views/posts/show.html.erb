@@ -1,5 +1,10 @@
 <h1 class="user_header_title">Post Details</h1>
-<%= button_to "Like Post", user_post_likes_path(@user, @post), method: :post, class: "like_post_btn" %>
+<div class="post-detail-actions">
+  <%= button_to "Like Post", user_post_likes_path(@user, @post), method: :post, class: "like_post_btn" %>
+  <% if can? :destroy, @post %>
+    <%= button_to "Delete Post", user_post_path(@user, @post), method: :delete, class: "like_post_btn" %>
+  <% end %>
+</div>
 <section class="post_details_container">
   <div class="post_details_header">
     <h4 style="margin-bottom: 1rem"><%= @post.title %> by <%= @post.author.name %></h4>
@@ -17,6 +22,9 @@
     <h4>Comments</h4>
     <% @post.comments.each do |comment| %>
       <p><span style="font-weight: 700"><%= comment.author.name %>:</span> <%= comment.text %></p>
+      <% if can? :destroy, comment %>
+        <%= button_to "Delete Comment", user_post_comment_path(@user, @post, comment), method: :delete, class: "like_post_btn" %>
+      <% end %>
     <% end %>
   </div>
 <% end %>
