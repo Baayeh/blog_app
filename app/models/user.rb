@@ -13,4 +13,10 @@ class User < ApplicationRecord
   def most_recent_posts
     posts.first(3)
   end
+
+  ROLES = [:admin, :user]
+
+  def admin?
+    role == :admin
+  end
 end
