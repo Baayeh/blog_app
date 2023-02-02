@@ -35,3 +35,13 @@ div.session_manager a:hover,
 a.nav-brand span {
   color: crimson;
 }
+
+div.user_signed_in {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+div.user_signed_in span {
+  font-size: 1.3rem;
+}
